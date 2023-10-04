@@ -144,7 +144,7 @@ window.addEventListener("load", () => {
   if (localStorage.getItem("products") == null) {
     localStorage.setItem("products", JSON.stringify(initialProducts));
   }
-  if (location.pathname === "/e-commerce/admin/adminHome.html") {
+  if (location.pathname === "/e-commerce/adminHome.html") {
     adminHomePage();
   }
   if (location.pathname === "/e-commerce/Homepage.html") {
@@ -161,7 +161,7 @@ window.addEventListener("load", () => {
     loadOrderPage();
   }
 
-  if (location.pathname === "/e-commerce/admin/adminOrders.html") {
+  if (location.pathname === "/e-commerce/adminOrders.html") {
     loadAdminOrderPage();
   }
 
@@ -173,7 +173,7 @@ window.addEventListener("load", () => {
     cartCount();
   }
 
-  if (location.pathname === "/e-commerce/admin/addproducts.html") {
+  if (location.pathname === "/e-commerce/addproducts.html") {
     let params = new URL(document.location).searchParams;
     let productId = params.get("id");
     if (productId) {
@@ -331,7 +331,7 @@ const adminSignIn = () => {
       localStorage.setItem("email", currentAdmin.email);
       localStorage.setItem("password", currentAdmin.password);
       sessionStorage.setItem("adminId", currentAdmin.id);
-      location.replace("/e-commerce/admin/adminHome.html");
+      location.replace("/e-commerce/adminHome.html");
       // alert("success");
     } else {
       invalid.innerText = "Fail";
@@ -410,7 +410,7 @@ const addOrUpdate = () => {
 
   let json = JSON.stringify(prods);
   localStorage.setItem("products", json);
-  location.href = "/e-commerce/admin/adminHome.html";
+  location.href = "/e-commerce/adminHome.html";
 };
 
 // delete product from admin page
@@ -423,7 +423,7 @@ const deleteProduct = (id) => {
 
 // edit product from admin page
 const editProduct = (id) => {
-  location.href = `/e-commerce/admin/addproducts.html?id=${id}`;
+  location.href = `/e-commerce/addproducts.html?id=${id}`;
 };
 
 //populate product
