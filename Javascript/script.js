@@ -278,7 +278,7 @@ const userSignIn = () => {
 // user signout
 const logout = () => {
   sessionStorage.removeItem("userId");
-  location.replace("/e-commerce/main.html");
+  location.replace("/e-commerce/index.html");
 };
 
 //admin sign in
