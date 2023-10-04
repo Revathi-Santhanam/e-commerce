@@ -650,7 +650,7 @@ const loadOrderPage = () => {
 const loadAdminOrderPage = () => {
   const orderRef = document.getElementById("adminOrders");
 
-  if (sessionStorage.getItem("userId")) {
+  if (sessionStorage.getItem("adminId")) {
     if (localStorage.getItem("orders")) {
       const orders = JSON.parse(localStorage.getItem("orders"));
 
