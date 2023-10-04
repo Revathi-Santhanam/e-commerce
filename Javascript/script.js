@@ -144,36 +144,36 @@ window.addEventListener("load", () => {
   if (localStorage.getItem("products") == null) {
     localStorage.setItem("products", JSON.stringify(initialProducts));
   }
-  if (location.pathname === "/admin/adminHome.html") {
+  if (location.pathname === "/e-commerce/admin/adminHome.html") {
     adminHomePage();
   }
-  if (location.pathname === "/user/Homepage.html") {
+  if (location.pathname === "/e-commerce/user/Homepage.html") {
     userHomePage();
   }
   // if (location.pathname === "/user/Signin.html") {
   //   userSignIn();
   // }
-  if (location.pathname === "/user/cart.html") {
+  if (location.pathname === "/e-commerce/user/cart.html") {
     loadCartPage();
   }
 
-  if (location.pathname === "/user/orders.html") {
+  if (location.pathname === "/e-commerce/user/orders.html") {
     loadOrderPage();
   }
 
-  if (location.pathname === "/admin/adminOrders.html") {
+  if (location.pathname === "/e-commerce/admin/adminOrders.html") {
     loadAdminOrderPage();
   }
 
   if (
-    location.pathname === "/user/Homepage.html" ||
-    location.pathname === "/user/orders.html" ||
-    location.pathname === "/user/cart.html"
+    location.pathname === "/e-commerce/user/Homepage.html" ||
+    location.pathname === "/e-commerce/user/orders.html" ||
+    location.pathname === "/e-commerce/user/cart.html"
   ) {
     cartCount();
   }
 
-  if (location.pathname === "/admin/addproducts.html") {
+  if (location.pathname === "/e-commerce/admin/addproducts.html") {
     let params = new URL(document.location).searchParams;
     let productId = params.get("id");
     if (productId) {
@@ -225,7 +225,7 @@ function register() {
           });
           let json = JSON.stringify(user);
           localStorage.setItem("users", json);
-          location.href = "/user/Signin.html";
+          location.href = "/e-commerce/user/Signin.html";
         } else {
           errRef.innerText = "Password mismatch!!!";
         }
@@ -266,7 +266,7 @@ const userSignIn = () => {
       localStorage.setItem("password", current_user.password);
       sessionStorage.setItem("userId", current_user.id);
 
-      location.href = "/user/Homepage.html";
+      location.href = "/e-commerce/user/Homepage.html";
       // alert("Login Pass");
     } else {
       // alert("Login Fail");
@@ -278,7 +278,7 @@ const userSignIn = () => {
 // user signout
 const logout = () => {
   sessionStorage.removeItem("userId");
-  location.replace("/main.html");
+  location.replace("/e-commerce/main.html");
 };
 
 //admin sign in
@@ -331,7 +331,7 @@ const adminSignIn = () => {
       localStorage.setItem("email", currentAdmin.email);
       localStorage.setItem("password", currentAdmin.password);
       sessionStorage.setItem("adminId", currentAdmin.id);
-      location.replace("/admin/adminHome.html");
+      location.replace("/e-commerce/admin/adminHome.html");
       // alert("success");
     } else {
       invalid.innerText = "Fail";
@@ -410,7 +410,7 @@ const addOrUpdate = () => {
 
   let json = JSON.stringify(prods);
   localStorage.setItem("products", json);
-  location.href = "/admin/adminHome.html";
+  location.href = "/e-commerce/admin/adminHome.html";
 };
 
 // delete product from admin page
@@ -423,7 +423,7 @@ const deleteProduct = (id) => {
 
 // edit product from admin page
 const editProduct = (id) => {
-  location.href = `/admin/addproducts.html?id=${id}`;
+  location.href = `/e-commerce/admin/addproducts.html?id=${id}`;
 };
 
 //populate product
@@ -473,7 +473,7 @@ const addToCart = (id) => {
   const product = products.find((product) => product.id === parseInt(id));
 
   if (!sessionStorage.getItem("userId")) {
-    location.href = "/user/Signin.html";
+    location.href = "/e-commerce/user/Signin.html";
   } else {
     let userId = parseInt(sessionStorage.getItem("userId"));
     let cart = [];
@@ -561,7 +561,7 @@ const loadCartPage = () => {
       cartRef.innerHTML = body;
       totalRef.innerText = `Total - ₹ ${total}`;
     } else {
-      location.href = "/user/Signin.html";
+      location.href = "/e-commerce/user/Signin.html";
     }
   }
 };
@@ -597,12 +597,12 @@ const checkOutHandler = () => {
       localStorage.setItem("cart", JSON.stringify(otherUserCart));
       localStorage.setItem("orders", JSON.stringify(orders));
       cartCount();
-      location.href = "/user/Homepage.html";
+      location.href = "/e-commerce/user/Homepage.html";
     } else {
-      location.href = "/user/Homepage.html";
+      location.href = "/e-commerce/user/Homepage.html";
     }
   } else {
-    location.href = "/user/Signin.html";
+    location.href = "/e-commerce/user/Signin.html";
   }
 };
 
@@ -639,10 +639,10 @@ const loadOrderPage = () => {
       }
       tableRef.innerHTML = body;
     } else {
-      location.href = "/user/Homepage.html";
+      location.href = "/e-commerce/user/Homepage.html";
     }
   } else {
-    location.href = "/user/Signin.html";
+    location.href = "/e-commerce/user/Signin.html";
   }
 };
 
@@ -704,9 +704,9 @@ const loadAdminOrderPage = () => {
         });
       }
     } else {
-      location.href = "/user/Homepage.html";
+      location.href = "/e-commerce/user/Homepage.html";
     }
   } else {
-    location.href = "/user/Signin.html";
+    location.href = "/e-commerce/user/Signin.html";
   }
 };
