@@ -380,6 +380,7 @@ const addOrUpdate = () => {
   let prods = JSON.parse(localStorage.getItem("products"));
 
   let id = idRef.value;
+  
   if (id) {
     const product = prods.find((product) => product.id === parseInt(id));
 
